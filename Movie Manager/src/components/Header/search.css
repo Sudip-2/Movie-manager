@@ -1,0 +1,9 @@
+.search-input::-webkit-search-cancel-button {
+  display: none;
+  /* Customize the cross button color */
+}
+
+.searchValContainer::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, and Edge */
+}
