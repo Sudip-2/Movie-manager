@@ -5,7 +5,7 @@ import './search.css'
 const Searchbox = () => {
   const [text, setText] = useState('')
   const [recomendation, setRecomendation] = useState()
-  const [show,setShow] = useState(false)
+  const [show, setShow] = useState(false)
   const {
     register,
     handleSubmit,
@@ -22,10 +22,10 @@ const Searchbox = () => {
     let response = await data.json()
     let dataArray = await response.Search
     console.log(dataArray)
-    if(dataArray != undefined){
+    if (dataArray != undefined) {
       setShow(true)
     }
-    else{
+    else {
       setShow(false)
     }
     if (dataArray != undefined) {
@@ -36,7 +36,12 @@ const Searchbox = () => {
         }
 
         return (
-          <div className='py-2 px-2 my-2 rounded-md flex hover:bg-gray-600 cursor-pointer items-center gap-2' key={item.imdbID}>
+          <div className='py-2 px-2 my-2 rounded-md flex hover:bg-gray-600 cursor-pointer items-center gap-2' key={item.imdbID}
+            onClick={() => {
+              setText(obj.title)
+              setShow(false)
+            }}
+          >
             <img src={obj.img} alt="picture"
               className='w-[50px] object-cover rounded-md'
             />
@@ -69,21 +74,25 @@ const Searchbox = () => {
             let lists = await showRecomendation()
             setRecomendation(lists)
           }}
+          value={text}
         />
         {errors.user && <div className='absolute top-[45px] sm:top-[60px] bg-slate-700 text-red-600 rounded-md px-2 py-1'>{errors.user.message}</div>}
 
         {/* search container */}
-        <div className={`searchValContainer absolute top-[42px] sm:top-[60px] max-w-[1200px] w-full sm:w-auto md:min-w-[300px] lg:min-w-[450px] h-auto max-h-[315px] bg-gray-700 text-gray-300 rounded-md px-4 py-2 overflow-y-auto ${show?"block":"hidden"}`}>
+        <div className={`searchValContainer absolute top-[42px] sm:top-[60px] max-w-[1200px] w-full sm:w-auto md:min-w-[300px] lg:min-w-[450px] h-auto max-h-[315px] bg-gray-700 text-gray-300 rounded-md px-4 py-2 overflow-y-auto ${show ? "block" : "hidden"}`}>
 
-            {/* {recomendation} */}
-            {recomendation}
-          </div>
-        
+          {/* {recomendation} */}
+          {recomendation}
+        </div>
+
         {/* search container */}
 
         <input type="submit"
           value="Search"
           className='w-3/12 sm:w-auto bg-red-600 px-4 py-2 sm:rounded-tr-md sm:rounded-br-md text-gray-200 cursor-pointer'
+          onClick={async() => {
+
+          }}
         />
       </form>
     </>
