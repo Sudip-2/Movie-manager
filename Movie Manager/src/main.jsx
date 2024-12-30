@@ -4,6 +4,7 @@ import './index.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Home from './Home/Home.jsx'
+import Page from './Page/Page.jsx'
 import Watchlist from './Playlist/Watchlist.jsx'
 
 const router = createBrowserRouter(
@@ -11,6 +12,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<App />}>
       <Route path='' element={<Home/>}></Route>
       <Route path='watchlist' element={<Watchlist/>}></Route>
+      <Route path='page/:imdbid' element={<Page/>}></Route>
     </Route>
   )
 )
