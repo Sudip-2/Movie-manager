@@ -8,14 +8,14 @@ const Page = () => {
     useEffect(() => {
         const fetchData = async () => {
             let apikey = "8d8adf22"
-            let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&i=${imdbid}`
+            let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&i=${imdbid}`
             let data = await fetch(apiUrl)
             let response = await data.json()
             setMovie(response)
             console.log(response)
           }
           fetchData()
-    },[])
+    },[imdbid])
 
     return (
         <>
