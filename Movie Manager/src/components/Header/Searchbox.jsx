@@ -55,7 +55,7 @@ const Searchbox = () => {
 
 
   const submit = () => {
-
+    // console.log("Hello world")
   }
 
   return (
@@ -90,9 +90,6 @@ const Searchbox = () => {
         <input type="submit"
           value="Search"
           className='w-3/12 sm:w-auto bg-red-600 px-4 py-2 sm:rounded-tr-md sm:rounded-br-md text-gray-200 cursor-pointer'
-          onClick={async() => {
-
-          }}
         />
       </form>
     </>

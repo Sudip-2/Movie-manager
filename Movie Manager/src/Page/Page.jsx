@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 const Page = () => {
     const { imdbid } = useParams()
     const[movie,setMovie] = useState('')
-
+    const[ratingArr,setRatingarr] = useState([])
     useEffect(() => {
         const fetchData = async () => {
             let apikey = "8d8adf22"
@@ -12,7 +12,7 @@ const Page = () => {
             let data = await fetch(apiUrl)
             let response = await data.json()
             setMovie(response)
-            // console.log(response)
+            setRatingarr(response.Ratings)
           }
           fetchData()
     },[imdbid])
@@ -44,10 +44,14 @@ const Page = () => {
                         </div>
 
                         <div className=''>
-                            <h3 className='px-2'>Score</h3>
-                            <p className='px-4'>Internet Movie Database: ''</p>
-                            <p className='px-4'>Rotten Tomatoes Value: '96%'</p>
-                            <p className='px-4'>Metacritic Value: '95/100'</p>
+                             <h3 className='px-2'>Score</h3>
+                             {
+                                ratingArr.map((item,index) => {
+                                    return(
+                                        <p className='px-4' key={index}>{item.Source}: {item.Value}</p>
+                                    )
+                                })
+                             }
                         </div>
 
                         <div className=''>

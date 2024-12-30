@@ -11,9 +11,10 @@
 </body>
 <script>
     let apikey = "8d8adf22"
-    let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&i=tt1285016`
-    // let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&`
-    // let posterUrl = `http://img.omdbapi.com/?apikey=${apikey}&t=The Social Network`
+    // let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&i=tt1285016`
+    let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&t=The Social Network`
+    // let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2024`
+    // let posterUrl = `http://img.omdbapi.com/?apikey=${apikey}&s=The Social Network`
     let image = document.querySelector('#image')
     let para = document.querySelector('.hello')
 
@@ -24,6 +25,7 @@
         // let imgResponse = await data.json()
         // console.log(response.totalResults)
         console.log(response)
+        // console.log(imgData)
         // let myArray = response.Search
         // let titleImg = myArray.map((item) => {
         //     let obj = {
@@ -32,8 +34,8 @@
         //     }
         //     return obj
         // } )
-        image.src = response.Poster
-        para.textContent = response.Title
+        // image.src = response.Poster
+        // para.textContent = response.Title
         // image.src = titleImg[0].img
         // para.textContent = titleImg[0].title
     } 
