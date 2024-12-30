@@ -12,7 +12,7 @@ const Page = () => {
             let data = await fetch(apiUrl)
             let response = await data.json()
             setMovie(response)
-            console.log(response)
+            // console.log(response)
           }
           fetchData()
     },[imdbid])
