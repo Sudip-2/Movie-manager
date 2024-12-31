@@ -7,7 +7,7 @@ const Page = () => {
     const[ratingArr,setRatingarr] = useState([])
     useEffect(() => {
         const fetchData = async () => {
-            let apikey = "8d8adf22"
+            let apikey = import.meta.env.VITE_Apikey
             let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&i=${imdbid}`
             let data = await fetch(apiUrl)
             let response = await data.json()

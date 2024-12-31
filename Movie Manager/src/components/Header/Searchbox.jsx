@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { useForm } from "react-hook-form"
 import './search.css'
+import {Link, useNavigate} from 'react-router-dom'
 
 const Searchbox = () => {
+
+  const navigate = useNavigate()
   const [text, setText] = useState('')
   const [recomendation, setRecomendation] = useState()
   const [show, setShow] = useState(false)
@@ -15,7 +18,7 @@ const Searchbox = () => {
   } = useForm()
 
   const showRecomendation = async () => {
-    let apikey = "8d8adf22"
+    let apikey = import.meta.env.VITE_Apikey
     let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=${text}`
 
     let data = await fetch(apiUrl)
@@ -36,7 +39,8 @@ const Searchbox = () => {
         }
 
         return (
-          <div className='py-2 px-2 my-2 rounded-md flex hover:bg-gray-600 cursor-pointer items-center gap-2' key={item.imdbID}
+          <Link to={`/page/${item.imdbID}`} key={item.imdbID}>
+          <div className='py-2 px-2 my-2 rounded-md flex hover:bg-gray-600 cursor-pointer items-center gap-2'
             onClick={() => {
               setText(obj.title)
               setShow(false)
@@ -47,6 +51,7 @@ const Searchbox = () => {
             />
             <div className=''>{obj.title}</div>
           </div>
+          </Link>
         )
       })
       return titleImg
@@ -56,6 +61,8 @@ const Searchbox = () => {
 
   const submit = () => {
     // console.log("Hello world")
+    navigate(`/search?title=${text}`)
+    setShow(false)
   }
 
   return (

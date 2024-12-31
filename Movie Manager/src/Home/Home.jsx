@@ -6,7 +6,7 @@ const Home = () => {
   let [content, setContent] = useState([])
   useEffect(() => {
     const fetchData = async () => {
-      let apikey = "8d8adf22"
+      let apikey = import.meta.env.VITE_Apikey
       let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2024&plot=full`
 
       let data = await fetch(apiUrl)
