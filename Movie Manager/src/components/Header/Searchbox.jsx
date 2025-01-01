@@ -6,7 +6,7 @@ import {Link, useNavigate} from 'react-router-dom'
 const Searchbox = () => {
 
   const navigate = useNavigate()
-  const [text, setText] = useState('')
+  const [text,setText] = useState('')
   const [recomendation, setRecomendation] = useState()
   const [show, setShow] = useState(false)
   const {
@@ -17,14 +17,14 @@ const Searchbox = () => {
     formState: { errors, isSubmitting },
   } = useForm()
 
-  const showRecomendation = async () => {
+  const showRecomendation = async (text) => {
     let apikey = import.meta.env.VITE_Apikey
     let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=${text}`
 
     let data = await fetch(apiUrl)
     let response = await data.json()
     let dataArray = await response.Search
-    console.log(dataArray)
+    // console.log(dataArray)
     if (dataArray != undefined) {
       setShow(true)
     }
@@ -42,7 +42,7 @@ const Searchbox = () => {
           <Link to={`/page/${item.imdbID}`} key={item.imdbID}>
           <div className='py-2 px-2 my-2 rounded-md flex hover:bg-gray-600 cursor-pointer items-center gap-2'
             onClick={() => {
-              setText(obj.title)
+              // setText(obj.title)
               setShow(false)
             }}
           >
@@ -77,11 +77,14 @@ const Searchbox = () => {
           className='w-9/12 sm:w-auto outline-none search-input bg-gray-700 text-gray-300 placeholder:text-gray-300 px-4 py-2 sm:rounded-tl-md sm:rounded-bl-md md:w-[300px] lg:w-[450px]'
           autoComplete='off'
           onChange={async (e) => {
-            setText(e.target.value)
-            let lists = await showRecomendation()
-            setRecomendation(lists)
+            let value = e.target.value
+            setText(value)
+            setTimeout(async() => {
+              let lists = await showRecomendation(value)
+              // console.log(value)
+              setRecomendation(lists)
+            }, 300);
           }}
-          value={text}
         />
         {errors.user && <div className='absolute top-[45px] sm:top-[60px] bg-slate-700 text-red-600 rounded-md px-2 py-1'>{errors.user.message}</div>}
 
