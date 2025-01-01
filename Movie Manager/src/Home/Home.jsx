@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Addbutton from './Addbutton.jsx'
-import { Link } from 'react-router-dom';
+import Homediv from './Homediv.jsx';
 
 const Home = () => {
   let [content, setContent] = useState([])
@@ -14,14 +13,7 @@ const Home = () => {
       let dataArray = await response.Search
       let titleImg = dataArray.map((item) => {
         return (
-          <div className='w-full aspect-[2/3] z-[1] relative overflow-hidden rounded-md' key={item.imdbID}>
-            <Link to={`/page/${item.imdbID}`}>
-              <img src={item.Poster} alt='posters' className='w-full h-full object-cover rounded-md hover:scale-110 duration-300' />
-            </Link>
-            <abbr title="Add to Your watchlist">
-              <Addbutton />
-            </abbr>
-          </div>
+          <Homediv item={item} key={item.imdbID}/>
         )
       })
       setContent(titleImg)

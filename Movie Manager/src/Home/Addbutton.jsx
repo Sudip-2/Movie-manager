@@ -1,10 +1,21 @@
 import React from 'react'
-import { IoIosAdd  } from "react-icons/io";
+import { IoIosAdd } from "react-icons/io";
+import { useSelector,useDispatch } from 'react-redux'
+import { increment,decrement } from '../Redux/Slices/Watchlist/watchlistSlice'
 
-const Addbutton = () => {
+const Addbutton = ({imdbId}) => {
+
+  const count = useSelector((state) => state.watchlist.value)
+  const dispatch = useDispatch()
+
   return (
     <div>
-        <IoIosAdd  className='text-5xl absolute text-red-600 right-5 bottom-5 cursor-pointer backdrop-blur-lg rounded-full'/>
+      <IoIosAdd className='text-5xl absolute text-red-600 right-5 bottom-5 cursor-pointer backdrop-blur-lg rounded-full' 
+      onClick={() => {
+        dispatch(increment(imdbId))
+        // console.log(count)
+      }}
+      />
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import App from './App.jsx'
 import Home from './Home/Home.jsx'
 import Page from './Page/Page.jsx'
-import Watchlist from './Playlist/Watchlist.jsx'
+import Watchlist from './Watchlist/Watchlist.jsx'
 import Search from './Search/Search.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -20,5 +20,5 @@ createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </HashRouter>
-  </StrictMode>,
+  </StrictMode>
 )
