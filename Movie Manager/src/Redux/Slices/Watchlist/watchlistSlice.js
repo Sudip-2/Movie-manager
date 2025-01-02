@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: [],
+  value: JSON.parse(localStorage.getItem("imdbIdArray")) || [],
 }
 
 export const watchlistSlice = createSlice({
@@ -9,11 +9,13 @@ export const watchlistSlice = createSlice({
   initialState,
   reducers: {
     increment: (state,action) => {
-      state.value.unshift(action.payload)
+      state.value.unshift(action.payload) 
+      localStorage.setItem("imdbIdArray",JSON.stringify(state.value))
     },
     decrement: (state,action) => {
       let index = state.value.indexOf(action.payload)
       state.value.splice(index,1)
+      localStorage.setItem("imdbIdArray",JSON.stringify(state.value))
     }
   },
 })

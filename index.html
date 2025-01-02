@@ -10,13 +10,18 @@
     <p class="hello"></p>
 </body>
 <script>
-    let apikey = "8d8adf22"
+    let arr = [1,3]
+    localStorage.setItem("name",arr)
+    // localStorage.removeItem("name")
+    let name = localStorage.getItem("name")
+    console.log(name)
+    // let apikey = "8d8adf22"
     // let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&i=tt1285016`
-    let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&t=Gintama`
+    // let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&t=Gintama`
     // let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2024`
     // let posterUrl = `http://img.omdbapi.com/?apikey=${apikey}&s=The Social Network`
-    let image = document.querySelector('#image')
-    let para = document.querySelector('.hello')
+    // let image = document.querySelector('#image')
+    // let para = document.querySelector('.hello')
 
     async function callApi() {
         let data = await fetch(apiUrl)
@@ -44,7 +49,7 @@
     // console.log("Hello world")
     setTimeout(() => {
         console.log("Hello world")
-        callApi()
+        // callApi()
     },300)
 </script>
 </html>
