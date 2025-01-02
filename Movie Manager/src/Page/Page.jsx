@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Addbutton from '../Home/Addbutton.jsx'
+import Alreadyadded from '../Home/Alreadyadded.jsx'
+import Minus from '../Watchlist/Minus.jsx'
 
 const Page = () => {
     const { imdbid } = useParams()
@@ -23,8 +26,11 @@ const Page = () => {
                 <div className='max-w-[1200px] mx-auto pt-[60px] pb-[20px] sm:py-[30px] h-full grid sm:grid-cols-3 gap-x-5'>
 
                     {/* Movie poster */}
-                    <div className='w-full sm:col-span-1'>
+                    <div className='w-full sm:col-span-1 relative'>
                         <img src={movie.Poster} alt="image" className='aspect-[2/3] object-cover w-full rounded-md' />
+                        <Alreadyadded imdbId ={movie.imdbID} bottom={8}/>
+                        <Addbutton imdbId ={movie.imdbID} bottom={8}/>
+                        <Minus imdbId ={movie.imdbID} bottom={8}/>
                     </div>
                     {/* Movie poster */}
 

@@ -33,7 +33,6 @@ const Watchlist = () => {
           {saved.map((item) => {
             return (
               <Watchlistdiv item={item} key={item.imdbID}/>
-              // {/* <p className='text-center mt-2 w-full break-words'>{item.Title}</p> */ }
             )
           })
           }

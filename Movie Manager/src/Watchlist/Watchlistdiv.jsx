@@ -10,7 +10,7 @@ const Homediv = ({item}) => {
                     <img src={item.Poster} alt='posters' className='w-full h-full object-cover rounded-md hover:scale-110 duration-300' />
                 </Link>
                 <abbr title="Remove from Your watchlist">
-                    <Minus imdbId={item.imdbID} />
+                    <Minus imdbId={item.imdbID} bottom={2}/>
                 </abbr>
             </div>
         </>

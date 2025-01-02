@@ -31,6 +31,9 @@ const Home = () => {
           {/* <div className='w-full aspect-[2/3] z-[1] relative overflow-hidden'>
 
             <img src="https://imgs.search.brave.com/KuW3HcPR2IwH4a4ThKmnN4Y_uGBdhzY2oDHmhfdVft0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuZm9udHNpbnVz/ZS5jb20vc3RhdGlj/L3VzZS1tZWRpYS1p/dGVtcy8xODQvMTgz/MDgyL3VwdG8tNzAw/eGF1dG8vNjNkZjk3/ZjcvMTAyOF9NLTAz/MTRfZm90b19kLmpw/ZWc" alt='posters' className='w-full h-full object-cover rounded-md hover:scale-110 duration-300' />
+
+              <p className='absolute text-red-600 left-2 bottom-2 backdrop-blur-lg border px-2 text-sm rounded-full py-1' >Added</p>          
+
             <abbr title="Add to Your watchlist">
               <Addbutton />
             </abbr>
