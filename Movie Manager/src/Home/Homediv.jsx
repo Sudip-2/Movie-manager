@@ -10,9 +10,9 @@ const Homediv = ({item}) => {
                 <Link to={`/page/${item.imdbID}`}>
                     <img src={item.Poster} alt='posters' className='w-full h-full object-cover rounded-md hover:scale-110 duration-300' />
                 </Link>
-                <Alreadyadded imdbId={item.imdbID} bottom={2}/>
+                <Alreadyadded imdbId={item.imdbID} bottom={7}/>
                 <abbr title="Add to Your watchlist">
-                    <Addbutton imdbId={item.imdbID} bottom={2}/>
+                    <Addbutton imdbId={item.imdbID} bottom={7}/>
                 </abbr>
             </div>
         </>

@@ -8,7 +8,10 @@ const Alreadyadded = ({ imdbId,bottom }) => {
 
   return (
     <p 
-    className={`absolute text-red-500 bg-slate-900 left-2 bottom-${bottom} backdrop-blur-lg px-2 text-sm rounded-full py-1 ${disableAdd?"block":"hidden"}`} 
+    className={`absolute text-red-500 bg-slate-900 left-2 backdrop-blur-lg px-2 text-sm rounded-full py-1 ${disableAdd?"block":"hidden"}`} 
+    style={{
+      bottom : bottom
+    }}
     >Added</p> 
   )
 }

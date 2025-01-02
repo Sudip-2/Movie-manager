@@ -12,9 +12,12 @@ const Minusbutton = ({imdbId,bottom}) => {
 
   return (
     <div>
-      <FiMinus className={`text-5xl absolute text-red-600 right-5 bottom-${bottom} ${disableAdd?"block":"hidden"} cursor-pointer backdrop-blur-lg rounded-full`} 
+      <FiMinus className={`text-5xl absolute text-red-600 right-3 ${disableAdd?"block":"hidden"} cursor-pointer backdrop-blur-lg rounded-full`} 
       onClick={() => {
         dispatch(decrement(imdbId))
+      }}
+      style={{
+        bottom : bottom
       }}
       />
     </div>

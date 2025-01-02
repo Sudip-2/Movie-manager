@@ -28,9 +28,9 @@ const Page = () => {
                     {/* Movie poster */}
                     <div className='w-full sm:col-span-1 relative'>
                         <img src={movie.Poster} alt="image" className='aspect-[2/3] object-cover w-full rounded-md' />
-                        <Alreadyadded imdbId ={movie.imdbID} bottom={10}/>
-                        <Addbutton imdbId ={movie.imdbID} bottom={10}/>
-                        <Minus imdbId ={movie.imdbID} bottom={10}/>
+                        <Alreadyadded imdbId ={movie.imdbID} bottom={33}/>
+                        <Addbutton imdbId ={movie.imdbID} bottom={40}/>
+                        <Minus imdbId ={movie.imdbID} bottom={40}/>
                     </div>
                     {/* Movie poster */}
 

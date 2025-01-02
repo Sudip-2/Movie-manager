@@ -17,7 +17,10 @@ const Addbutton = ({ imdbId,bottom }) => {
         }}
         disabled={disableAdd}
       >
-        <IoIosAdd className={`text-5xl absolute text-red-600 right-5 bottom-${bottom} cursor-pointer backdrop-blur-lg rounded-full`}
+        <IoIosAdd className={`text-5xl absolute text-red-600 right-3 cursor-pointer backdrop-blur-lg rounded-full ${disableAdd?"hidden":"block"}`}
+        style={{
+          bottom : bottom
+        }}
         />
       </button>
     </div>
