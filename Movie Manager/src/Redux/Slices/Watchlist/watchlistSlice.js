@@ -11,16 +11,14 @@ export const watchlistSlice = createSlice({
     increment: (state,action) => {
       state.value.unshift(action.payload)
     },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    },
+    decrement: (state,action) => {
+      let index = state.value.indexOf(action.payload)
+      state.value.splice(index,1)
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = watchlistSlice.actions
+export const { increment, decrement} = watchlistSlice.actions
 
 export default watchlistSlice.reducer

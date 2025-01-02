@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import Homediv from '../Home/Homediv'
+import Watchlistdiv from './Watchlistdiv.jsx'
 
 const Watchlist = () => {
 
@@ -32,7 +32,7 @@ const Watchlist = () => {
 
           {saved.map((item) => {
             return (
-              <Homediv item={item} key={item.imdbID}/>
+              <Watchlistdiv item={item} key={item.imdbID}/>
               // {/* <p className='text-center mt-2 w-full break-words'>{item.Title}</p> */ }
             )
           })
