@@ -17,16 +17,21 @@ const Search = () => {
       let apikey = import.meta.env.VITE_Apikey
       let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=${value}&plot=full`
 
-      let data = await fetch(apiUrl)
-      let response = await data.json()
-      let dataArray = await response.Search
-      setArraylength(dataArray.length)
-      let titleImg = dataArray.map((item) => {
-        return (
-          <Homediv item={item} key={item.imdbID} />
-        )
-      })
-      setContent(titleImg)
+      try{
+        let data = await fetch(apiUrl)
+        let response = await data.json()
+        let dataArray = await response.Search
+        setArraylength(dataArray.length)
+        let titleImg = dataArray.map((item) => {
+          return (
+            <Homediv item={item} key={item.imdbID} />
+          )
+        })
+        setContent(titleImg)
+      }catch(error){
+        setArraylength(0)
+        setContent([])
+      }
       setIsloading(false)
     }
     fetchData()

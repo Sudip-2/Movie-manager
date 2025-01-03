@@ -1,12 +1,12 @@
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import './search.css'
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Searchbox = () => {
 
   const navigate = useNavigate()
-  const [text,setText] = useState('')
+  const [text, setText] = useState('')
   const [recomendation, setRecomendation] = useState()
   const [show, setShow] = useState(false)
   const {
@@ -40,17 +40,17 @@ const Searchbox = () => {
 
         return (
           <Link to={`/page/${item.imdbID}`} key={item.imdbID}>
-          <div className='py-2 px-2 my-2 rounded-md flex hover:bg-gray-600 cursor-pointer items-center gap-2'
-            onClick={() => {
-              // setText(obj.title)
-              setShow(false)
-            }}
-          >
-            <img src={obj.img} alt="picture"
-              className='w-[50px] object-cover rounded-md'
-            />
-            <div className=''>{obj.title}</div>
-          </div>
+            <div className='py-2 px-2 my-2 rounded-md flex hover:bg-gray-600 cursor-pointer items-center gap-2'
+              onClick={() => {
+                // setText(obj.title)
+                setShow(false)
+              }}
+            >
+              <img src={obj.img} alt="picture"
+                className='w-[50px] object-cover rounded-md'
+              />
+              <div className=''>{obj.title}</div>
+            </div>
           </Link>
         )
       })
@@ -65,9 +65,18 @@ const Searchbox = () => {
     setShow(false)
   }
 
+
   return (
     <>
-      <form onSubmit={handleSubmit(submit)} className='flex absolute left-0 top-[63px] max-w-[1200px] w-full sm:static sm:w-auto'>
+      <form onSubmit={handleSubmit(submit)} className='searchBoxEvent flex absolute left-0 top-[63px] max-w-[1200px] w-full sm:static sm:w-auto'
+        onKeyDown={(e) => {
+          if (e.key == 'Enter') {
+            e.preventDefault()
+            navigate(`/search?title=${text}`)
+            setShow(false)
+          }
+        }}
+      >
 
         <input type="search" {...register("user", {
           required: { value: true, message: "Enter a search term" }
@@ -79,7 +88,7 @@ const Searchbox = () => {
           onChange={async (e) => {
             let value = e.target.value
             setText(value)
-            setTimeout(async() => {
+            setTimeout(async () => {
               let lists = await showRecomendation(value)
               // console.log(value)
               setRecomendation(lists)
