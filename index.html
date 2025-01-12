@@ -18,7 +18,7 @@
     let apikey = "8d8adf22"
     // let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&i=tt1285016`
     // let apiUrl = `http://www.omdbapi.com/?apikey=${apikey}&t=Gintama`
-    let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2024`
+    let apiUrl = `https://www.omdbapi.com/?apikey=${apikey}&s=movie&y=2024&page=2`
     // let posterUrl = `http://img.omdbapi.com/?apikey=${apikey}&s=The Social Network`
     // let image = document.querySelector('#image')
     // let para = document.querySelector('.hello')
@@ -30,6 +30,7 @@
         // let imgResponse = await data.json()
         // console.log(response.totalResults)
         console.log(response)
+        console.log(response.totalResults)
         // console.log(imgData)
         // let myArray = response.Search
         // let titleImg = myArray.map((item) => {

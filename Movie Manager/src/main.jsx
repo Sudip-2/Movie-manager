@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')).render(
           <Route path='' element={<Home />}></Route>
           <Route path='watchlist' element={<Watchlist />}></Route>
           <Route path='page/:imdbid' element={<Page />}></Route>
-          <Route path='search' element={<Search/>}></Route>
+          <Route path='search' element={<Search />}></Route>
         </Route>
       </Routes>
     </HashRouter>
